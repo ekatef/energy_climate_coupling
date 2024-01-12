@@ -16,6 +16,8 @@ import xarray as xr
 # transform csv to nc ----------------------------------------------------------
 csv_fl = "~/pypsa-earth/data/ssp2-2.6/2030/era5_2013_IR2/Asia.csv"
 
+# NB The proper variable name is `Electricity demand`
+
 # df = pd.read_csv(csv_fl)
 df = pd.read_csv(csv_fl, sep = ";")
 df.time = pd.to_datetime(df.time, format="%Y-%m-%d %H:%M:%S")
