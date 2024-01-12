@@ -27,7 +27,7 @@ regions = {c:n for c, n in zip(df.region_code, df.region_name)}
 df.time = pd.to_datetime(df.time, format="%Y-%m-%d %H:%M:%S")
 xds = df.set_index(["region_code", "time"]).to_xarray()
 xds = xds.assign_coords(
-    {"region_name":("region_code", [name for (code, name) in regions])}
+    {"region_name":("region_code", [name for (code, name) in regions.items()])}
 )
 
 xds.to_netcdf("~/pypsa-earth/data/ssp2-2.6/2030/era5_2013_IR2/Asia.nc")
