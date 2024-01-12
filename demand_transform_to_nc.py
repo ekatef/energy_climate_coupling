@@ -25,7 +25,7 @@ df.time = pd.to_datetime(df.time, format="%Y-%m-%d %H:%M:%S")
 regions = {c:n for c, n in zip(df.region_code, df.region_name)}
 
 df.time = pd.to_datetime(df.time, format="%Y-%m-%d %H:%M:%S")
-xds = df.set_index(["time", "region_code"]).to_xarray()
+xds = df.set_index(["region_code", "time"]).to_xarray()
 xds = xds.assign_coords(
     {"region_name":("region_code", [name for (code, name) in regions])}
 )
